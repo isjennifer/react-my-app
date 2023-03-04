@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div>
-      <h1>The Coins! {loading ? null : `(${coins.length})`}</h1>
+      <h1>The Coins! {loading ? null : `(${coins.length}ea)`}</h1>
       <div>
         <label htmlFor="id"><h3>How much do you have?</h3></label>
         <form onSubmit={onSubmit}>
@@ -48,7 +48,7 @@ function App() {
         </form>
       </div>
       <div>
-        <h3>what do you want to buy?</h3>
+        <h3>What do you want to buy?</h3>
         {loading ? 
           <strong>loading...</strong> :
           <select onChange={onChange2}>
@@ -63,7 +63,12 @@ function App() {
         }
       </div>
       <div>
-        {loading ? null : value / coins[money].quotes.USD.price}
+        <h3>
+          You can buy{" "}
+          {loading ? null : value / coins[money].quotes.USD.price}
+          {" "}
+          {loading ? null : coins[money].name}!
+        </h3>
       </div>
     </div>
   );
